@@ -14,9 +14,9 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find(params[:id])
       if @tweet.user == current_user
         @tweet.destroy
-        render json: { message: "Tweet deleted" }, status: :ok
+        render json: status: :ok
       else
-        render json: { message: "You are not authorized to delete this tweet" }, status: :unauthorized
+        render json: status: :unauthorized
       end
     end
   
@@ -31,7 +31,7 @@ class TweetsController < ApplicationController
         @tweets = @user.tweets
         render json: @tweets, status: :ok
       else
-        render json: { message: "User not found" }, status: :not_found
+        render json: status: :not_found
       end
     end
   
@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
       if @session
         @current_user = @session.user
       else
-        render json: { message: "Authentication required" }, status: :unauthorized
+        render json: status: :unauthorized
       end
     end
   

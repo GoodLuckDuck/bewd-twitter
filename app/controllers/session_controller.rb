@@ -24,8 +24,8 @@ class SessionController < ApplicationController
           cookies.delete(:twitter_session_token)
           render json: { message: "Logged out successfully" }, status: :ok
         else
-          render json: { message: "Not logged in" }, status: :unauthorized
+          render json:  status: :unauthorized
         end
-    end
+      end
 end
 
